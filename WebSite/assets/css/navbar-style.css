@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+--color1:#f16b0c;
+--color2: #13293e;
+--dark: #252525;
+--light: #fff;
+}
+
+/* NavBar */
+
+header{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
+header .navBar{
+    background-color: var(--color2);
+    width: 100%;
+    height: 90px;
+    padding: 0 40px 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .navBar img{
+    width: 120px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+header .navBar div{
+    display: flex;
+    align-items: center;
+}
+
+header .navBar i{
+    color: var(--color1);
+    font-size: 30px;
+}
+
+/* Search Bar */
+
+.search-bar div{
+    position: absolute;
+    background-color: var(--color1);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    left: 425px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar div i{
+    color: var(--light);
+    font-size: 20px;
+}
+
+.search-input{
+    border-radius: 25px;
+    width: 280px;
+    outline: none;
+    margin-left: 25px;
+    padding: 10px 10px 10px 20px;
+    border: 0;
+}
+
+/* Wish List and shopping cart*/
+
+.wish-list{
+    display: flex;
+    align-items: center;
+    color: var(--light);
+    margin-right:  40px;
+}
+
+.wish-list p{
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+.fa-shopping-cart{
+    cursor: pointer;
+}
+
+
+.right-items{
+    margin-right: 30px;
+}
+
+/* Sub NavBar */
+
+header .sub-navbar{
+    width: 100%;
+    height: 50px;
+    padding: 0 20px 0 20px;
+    margin: 0;
+    background-color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.categories-items ul{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.categories-items ul li{
+    list-style: none;
+    margin-right: 20px;
+}
+
+.categories-items ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.menu-categories{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-categories div{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    font-size: 20px;
+}
+
+
+
+.menu-categories p{
+    margin: 0 20px 0 0;
+}
