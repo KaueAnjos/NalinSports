@@ -1,6 +1,8 @@
 :root {
     --first-color: #13293e;
+    --first-color-hover: #102233;
     --second-color: #f66b0e;
+    --second-color-hover: #c9570b;
     --light: #ffffff;
     --dark: #252525;
     --gradient: linear-gradient(to bottom, rgba(255,255,255,1) 50%, rgba(173,173,173,1) 100%);
@@ -120,6 +122,15 @@ section.highlights h1{
     width: 220px;
 }
 
+.highlight-card .btn-products:hover{
+    background-color: var(--second-color);
+    transition: 0.5s;
+}
+
+.highlight-card .btn-products:active{
+    transform: scale(0.95);
+}
+
 section.highlights div.container-arrow{
     border: 5px solid var(--second-color);
     border-radius: 100%;
@@ -185,6 +196,17 @@ section.highlights .carousel-control-next-icon {
     justify-content: end;
     text-align: center;
     overflow: hidden;
+    cursor: pointer;
+}
+
+.products .product-card:hover h1{
+    transition: 0.5s;
+    color: var(--second-color-hover);
+}
+
+.product-card .product-card:hover img{
+    transition: 0.5s;
+    transform: scale(1.5);
 }
 
 .products .product-card h1{

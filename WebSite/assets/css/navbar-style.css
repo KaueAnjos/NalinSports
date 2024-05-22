@@ -115,6 +115,7 @@ header .sub-navbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .categories-items ul{
@@ -134,10 +135,21 @@ header .sub-navbar{
     color: black;
 }
 
+.categories-items ul li a:hover{
+    transition: 0.3s;
+    color: var(--color1);
+}
+
 .menu-categories{
     display: flex;
     align-items: center;
     text-align: center;
+    cursor: pointer;
+}
+
+.menu-categories:hover p{
+    transition: 0.3s;
+    color: var(--color1);
 }
 
 .menu-categories div{
@@ -155,5 +167,5 @@ header .sub-navbar{
 
 
 .menu-categories p{
-    margin: 0 20px 0 0;
+    margin: 0 10px 0 0;
 }
