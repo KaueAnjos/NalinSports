@@ -1,0 +1,108 @@
+:root {
+    --first-color: #13293e;
+    --first-color-hover: #102233;
+    --second-color: #f66b0e;
+    --second-color-hover: #c9570b;
+    --light: #ffffff;
+    --dark: #252525;
+    --gradient: linear-gradient(to bottom, rgba(255, 255, 255, 1) 50%, rgba(173, 173, 173, 1) 100%);
+}
+
+/* Product display */
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+section.product-header {
+    margin-top: 140px;
+    display: flex;
+    height: calc(100vh);
+}
+
+div.product-display {
+    width: 65%;
+    height: 100%;
+    background: var(--gradient);
+}
+
+aside.product-details {
+    background-color: var(--first-color);
+    height: 100%;
+    width: 35%;
+    color: var(--light);
+    padding: 40px;
+}
+
+aside.product-details h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+aside.product-details h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+aside.product-details p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+aside.product-details .other-colors {
+    display: flex;
+    gap: 20px;
+}
+
+aside.product-details .product-color {
+    background-color: var(--light);
+    border-radius: 15px;
+    width: 70px;
+    height: 70px;
+}
+
+aside.product-details .product-size .size {
+    background-color: var(--light);
+    border-radius: 15px;
+    width: 70px;
+    height: 70px;
+}
+
+aside.product-details .product-size {
+    gap: 20px;
+    display: grid;
+    justify-content: left;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(5, auto);
+}
+
+aside.product-details .buy-buttons{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+aside.product-details .buy-buttons button{
+    font-size: 30px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+aside.product-details .buy-buttons button:first-child{
+    background-color: var(--second-color);
+    color: var(--light);
+}
+
+aside.product-details .buy-buttons button:last-child{
+    background-color: var(--light);
+    color: var(--second-color);
+}

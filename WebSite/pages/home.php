@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>/assets/css/home-style.css" />
+</head>
 <main>
     <section class="carousel">
         <div id="maincarousel" class="carousel slide" data-bs-ride="carousel">
