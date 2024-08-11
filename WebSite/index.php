@@ -19,7 +19,7 @@ require_once 'config/config.php';
     include 'include/navbar.php';
 
     // Route 
-    $route = (isset($_GET['url'])) ? $_GET['url'] : 'store';
+    $route = (isset($_GET['url'])) ? $_GET['url'] : 'catalog';
     $pagesDir = 'pages/';
 
     if (file_exists($pagesDir . $route . '.php')) {

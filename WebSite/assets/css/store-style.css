@@ -1,12 +1,17 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     --first-color: #13293e;
     --first-color-hover: #102233;
     --second-color: #f66b0e;
     --second-color-hover: #c9570b;
     --light: #ffffff;
-    --light2: #dddddd;
     --dark: #252525;
-    --gradient: linear-gradient(to bottom, rgba(255, 255, 255, 1) 50%, rgba(173, 173, 173, 1) 100%);
+    --gradient: linear-gradient(to bottom, rgba(255,255,255,1) 50%, rgba(173,173,173,1) 100%);
 }
 
 /* Product display */
