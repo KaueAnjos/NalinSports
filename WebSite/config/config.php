@@ -1,12 +1,11 @@
 <?php
-
 // path site
-define('INCLUDE_PATH', 'http://localhost/nalin/');
+define('INCLUDE_PATH', 'http://localhost/NalinSports/WebSite/');
 
 define('HOST', 'localhost');
 define('USERNAME', 'root');
 define('PASSWORD', '');
-define('DATABASE', 'nalinBD');
+define('DATABASE', 'nalinbd');
 
-// require 'connection.php';
+require 'connection.php';
 ?>
