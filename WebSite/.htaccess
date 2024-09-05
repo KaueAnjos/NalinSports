@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /nalin/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+ErrorDocument 403 http://localhost/nalin/index.php
+Options -Indexes
+
+<Files .env>
+    Require all denied
+</Files>
+
+

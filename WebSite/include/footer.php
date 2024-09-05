@@ -31,7 +31,7 @@
         </ul>
 
         <ul>
-            <label>SOBRE MIM</label>
+            <a href="<?php echo INCLUDE_PATH?>/footer.php"><label>SOBRE MIM</label></a>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ducimus, ab, voluptate ratione sapiente adipisci delectus, obcaecati inventore fugiat repellat autem itaque in? Nulla quia, amet consequatur delectus necessitatibus praesentium.</p>
         </ul>
 

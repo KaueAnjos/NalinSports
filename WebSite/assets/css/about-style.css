@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --first-color: #13293e;
+    --first-color-hover: #102233;
+    --second-color: #f66b0e;
+    --second-color-hover: #c9570b;
+    --light: #ffffff;
+    --dark: #252525;
+    --gradient: linear-gradient(to bottom, rgba(255, 255, 255, 1) 50%, rgba(173, 173, 173, 1) 100%);
+}
+
+/* About Me */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+section {
+    margin-top: 140px;
+    width: 100%;
+    height: calc(100vh - 140px);
+    background-color: var(--first-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 60px;
+}
+
+.store-about, .nalin-about{
+    text-align: justify;
+    background: var(--gradient);
+    width: 30%; 
+    padding: 30px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    
+}
+
+.store-about h2, .nalin-about h2{
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    color: var(--second-color);
+}
+
+.nalin-about img{
+    width: 400px;
+}

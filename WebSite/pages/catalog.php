@@ -10,10 +10,6 @@
                     <h1>Calçados Masculinos</h1>
                 </div>
                 <div class="catalog-actions">
-                    <div class="share-container">
-                        <a href="#">Compartilhar</a>
-                        <img src="<?php echo INCLUDE_PATH; ?>/assets/img/share.svg" alt="Descrição do SVG">
-                    </div>
                     <select class="sort-select">
                         <option value="" disabled selected>Ordenar por</option>
                         <option value="relevance">Relevância</option>

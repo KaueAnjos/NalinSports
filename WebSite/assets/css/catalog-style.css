@@ -49,20 +49,22 @@ section.catalog {
     font-size: 18px;
 }
 
-.catalog-actions .share-container:hover{
-    cursor: pointer;
-}
-
-.catalog-actions .share-container img{
-    width: 15px;
-}
-
 .catalog-actions select{
     border-color: var(--second-color);
     outline: var(--second-color);
     font-size: 20px;
     padding: 10px;
     border-radius: 20px;
+}
+
+.accordion-button:not(.collapsed){
+    color: var(--second-color);
+    background-color: #f66b0e23;
+}
+
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 136, 0, 0.5); /* Efeito outline no foco em vermelho */
 }
 
 
@@ -85,6 +87,15 @@ section.catalog {
 div.accordion-body {
     display: flex;
     align-items: center;
+}
+
+div.accordion-body a{
+    color: var(--dark);
+    transition: 0.5s;
+}
+
+div.accordion-body a:hover{
+    color: var(--second-color);
 }
 
 .accordion {
@@ -140,8 +151,9 @@ div.accordion-body {
 
 .catalog-filters .filter-sizes ul{
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    gap: 20px;
     display: grid;
+    padding: 0;
 }
 
 .catalog-filters .filter-sizes ul li a {

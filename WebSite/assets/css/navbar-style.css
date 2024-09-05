@@ -83,8 +83,7 @@ header .navBar i{
 .wish-list{
     display: flex;
     align-items: center;
-    color: var(--light);
-    margin-right:  40px;
+    color: var(--light);    
 }
 
 .wish-list p{
@@ -102,6 +101,15 @@ header .navBar i{
 
 .right-items{
     margin-right: 30px;
+    gap: 40px;
+}
+button.admin-button{
+    background-color: var(--color1);
+    color: var(--light);
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
 }
 
 /* Sub NavBar */
