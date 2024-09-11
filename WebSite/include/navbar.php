@@ -18,7 +18,15 @@
                     <p>Lista de desejos</p>
                 </div>
                 <i class="fas fa-shopping-cart"></i>
-                <a href="<?php echo INCLUDE_PATH_ADMIN; ?>login"><button class="admin-button">Admin</button></a>
+
+                <?php
+                session_start();
+                if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
+                    echo '<a href="' . INCLUDE_PATH_ADMIN . 'panel "><button class="admin-button">Painel</button></a>';
+                } else {
+                    echo '<a href="' . INCLUDE_PATH_ADMIN . 'login"><button class="admin-button">Admin</button></a>';
+                }
+                ?>
             </div>
         </nav>
         <nav class="sub-navbar">
