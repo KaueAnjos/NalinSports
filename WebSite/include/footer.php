@@ -1,3 +1,12 @@
+<?php
+    $pdo = new PDO('mysql:host='.HOST.';dbname='.DATABASE, USERNAME, PASSWORD);
+
+    $sql = $pdo->prepare("SELECT * from adm");
+    $sql->execute();
+    $adm = $sql->fetchAll();
+
+    // Vai ter direcionamento no footer???
+?>
 <footer>
     <img src="<?php echo INCLUDE_PATH; ?>/assets/img/logotipo.png" class="logotipo">
 
@@ -25,21 +34,20 @@
 
         <ul>
             <label>CONTATO</label>
-            <li>11 40028922</li>
-            <li>11 40028922</li>
-            <li>nalin@gmail.com</li>
+            <li><?php echo $adm[0]['telefone']; ?></li>
+            <li><?php echo $adm[0]['email']; ?></li>
         </ul>
 
         <ul>
             <a href="<?php echo INCLUDE_PATH?>/footer.php"><label>SOBRE MIM</label></a>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ducimus, ab, voluptate ratione sapiente adipisci delectus, obcaecati inventore fugiat repellat autem itaque in? Nulla quia, amet consequatur delectus necessitatibus praesentium.</p>
+            <p>Na NalinSports, somos apaixonados por esportes e comprometidos em oferecer o que há de melhor em equipamentos esportivos, desde roupas e calçados até acessórios, sempre buscando a satisfação do cliente.</p>
         </ul>
 
         <ul>
             <label>ME SIGA</label>
             <div>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram" onclick="window.location.href = 'https://www.instagram.com/nalin_sports/'"></i>
+                <i class="fab fa-facebook-f" onclick="window.location.href = 'https://www.facebook.com/profile.php?id=61555426726204&locale=pt_BR'"></i>
             </div>
         </ul>
     </div>
