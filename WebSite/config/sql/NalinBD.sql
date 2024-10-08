@@ -11,7 +11,10 @@ CREATE TABLE IF NOT EXISTS produtos (
     nome_produto VARCHAR(50),
     genero ENUM('Masculino', 'Feminino'),
     preco DECIMAL(10, 2),
-    quantidade INT NOT NULL
+    quantidade INT NOT NULL,
+    acessos INT,
+    limite_parcelas INT NOT NULL, # PRECISA?
+    imagem VARCHAR(255) NOT NULL
 );
 
 -- Tabela de tamanhos

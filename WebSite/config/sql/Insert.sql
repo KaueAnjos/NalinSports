@@ -1,8 +1,13 @@
 use nalin_bd;
 
 -- Inserindo dados de teste
-INSERT INTO produtos (marca, tipo, nome_produto, genero, preco, quantidade) VALUES
-('Nike', 'Tênis', 'Air Max Plus', 'Masculino', 1299.99, 10);
+INSERT INTO produtos (marca, tipo, nome_produto, genero, preco, quantidade, limite_parcelas, imagem) VALUES
+('Nike', 'Tênis', 'Air Max Plus', 'Masculino', 1299.99, 10, 10, '/assets/img/tenis.png'),
+('Adidas', 'Tênis', 'Sla qual', 'Feminino', 1599.99, 10, 10, '/assets/img/tenis.png'),
+('Nike', 'Tênis', 'Air Max Plus', 'Masculino', 1299.99, 10, 10, '/assets/img/tenis.png'),
+('Adidas', 'Tênis', 'Sla qual', 'Feminino', 1599.99, 10, 10, '/assets/img/tenis.png'),
+('Nike', 'Tênis', 'Air Max Plus', 'Masculino', 1299.99, 10, 10, '/assets/img/tenis.png'),
+('Adidas', 'Tênis', 'Sla qual', 'Feminino', 1599.99, 10, 10, '/assets/img/tenis.png');
 
 INSERT INTO tamanhos (tamanho) VALUES (36), (37), (38), (39), (40), (41), (42), (43), (44), (45);
 
@@ -35,7 +40,7 @@ INSERT INTO produtos_cores (cod_prod, cod_cor, disponivel) VALUES
 
 -- Inserindo dados de teste na tabela de tb_times
 INSERT INTO tb_times(nome, escudo) VALUES
-('São Paulo', '/assets/img/teams/spfc.png'),
+('SaoPaulo', '/assets/img/teams/spfc.png'),
 ('Celtics', '/assets/img/teams/celtics.png'),
 ('Corinthans', '/assets/img/teams/sccp.png'),
 ('Santos', '/assets/img/teams/sfc.png');

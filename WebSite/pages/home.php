@@ -1,5 +1,6 @@
 <?php
-    $pdo = new PDO('mysql:host='.HOST.';dbname='.DATABASE, USERNAME, PASSWORD);
+    require_once __DIR__ . '/../config/connection.php';
+    require_once __DIR__ . '/../config/config.php';
 
     // getting screen resolution
     session_start();
@@ -57,115 +58,107 @@
 
         <div id="carouselHighlights" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                <div class="highlight-container">
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
+                <?php
+                    // validation
+                    $sql = $pdo->prepare("SELECT * FROM produtos");
+                    $sql->execute();
 
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
+                    if ($sql->rowCount() == 0)
+                    {
+                        echo "
+                            <p style='font-size: 30px; color: #f66b0e; width: 100%; text-align: center;'>
+                                Não há produtos em destaque
                             </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
+                        ";
+                        $num_slides = 0;
+                    }
+                    else
+                    {
+                        // functions slides
+                        function createFirstSlideHighlights($highlights)
+                        { ?>
+                            <div class="carousel-item active">
+                                <div class="highlight-container"><?php
+                                    foreach ($highlights as $highlight)
+                                    { ?>
+                                        <div class="highlight-card">
+                                            <img src="<?php echo INCLUDE_PATH . $highlight['imagem']; ?>" />
+                                            <p class="product-name"><?php echo $highlight['tipo'] ." ". $highlight['marca'] ." ". $highlight['nome_produto']; ?></p>
+                                            <br>
+                                            <p class="product-price"><?php echo "R$". $highlight['preco']; ?>
+                                                <span class="product-installment"><?php echo $highlight['limite_parcelas'] ."x de R$". $highlight['preco']; ?></span>
+                                            </p>
+                                            <a href="store?cod_prod=<?php echo $highlight['cod_prod']; ?>" class="btn-products">Quero!</a>
+                                        </div><?php
+                                    }?>
+                                </div>
+                            </div><?php
+                        }
 
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                <div class="highlight-container">
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
+                        function createOthersSlidesHighlights($highlights)
+                        {  ?>
+                            <div class="carousel-item">
+                                <div class="highlight-container"><?php
+                                    foreach ($highlights as $highlight)
+                                    { ?>
+                                        <div class="highlight-card">
+                                            <img src="<?php echo INCLUDE_PATH . $highlight['imagem']; ?>" />
+                                            <p class="product-name"><?php echo $highlight['tipo'] ." ". $highlight['marca'] ." ". $highlight['nome_produto']; ?></p>
+                                            <br>
+                                            <p class="product-price"><?php echo "R$". $highlight['preco']; ?>
+                                                <span class="product-installment"><?php echo $highlight['limite_parcelas'] ."x de R$". $highlight['preco']; ?></span>
+                                            </p>
+                                            <a href="store?cod_prod=<?php echo $highlight['cod_prod']; ?>" class="btn-products">Quero!</a>
+                                        </div><?php
+                                    }?>
+                                </div>
+                            </div><?php
+                        }
+                        
+                        // defining quantity
+                        $px_highlights = 700;
 
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
+                        $num_highlights = ceil($screen_width/$px_highlights);
+                        $num_slides = ceil($sql->rowCount()/$num_highlights);
 
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                <div class="highlight-container">
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
+                        // first slide
+                        $first_slide = $pdo->prepare("SELECT * FROM produtos WHERE cod_prod<=". $num_highlights ."");
+                        $first_slide->execute();
 
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
+                        $highlights = $first_slide->fetchAll();
+                        createFirstSlideHighlights($highlights);
 
-                        <div class="highlight-card">
-                            <img src="<?php echo INCLUDE_PATH; ?>/assets/img/tenis.png" />
-                            <p class="product-name">Tênis Nike Air Max Masculino</p>
-                            <br>
-                            <p class="product-price">R$9999,99
-                                <span class="product-installment">10x de R$999,99</span>
-                            </p>
-                            <button class="btn-products">Quero!</button>
-                        </div>
-                    </div>
-                </div>
+                        // others slides
+                        $highlight_break = $highlight_now = $num_highlights;
+
+                        for ($slide_now=2; $slide_now<=$num_slides; $slide_now++){
+                            $highlight_break += $num_highlights;
+
+                            $others_slides = $pdo->prepare("SELECT * FROM produtos WHERE cod_prod>". $highlight_now ." AND cod_prod<=". $highlight_break);
+                            $others_slides->execute();
+    
+                            $highlights = $others_slides->fetchAll();
+                            createOthersSlidesHighlights($highlights);
+
+                            $highlight_now += $num_highlights;
+                        }
+                    }
+                ?>
             </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselHighlights" data-bs-slide="prev">
-                <div class="container-arrow container-arrow-prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></div>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselHighlights" data-bs-slide="next">
-                <div class="container-arrow container-arrow-next"><span class="carousel-control-next-icon" aria-hidden="true"></span></div>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <!-- buttons bootstrap  -->
+            <?php
+                if($num_slides > 1){ ?>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTeam" data-bs-slide="prev">
+                        <div class="container-arrow"><span class="carousel-control-prev-icon" aria-hidden="true"></span></div>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselTeam" data-bs-slide="next">
+                        <div class="container-arrow"><span class="carousel-control-next-icon" aria-hidden="true"></span></div>
+                        <span class="visually-hidden">Next</span>
+                    </button><?php
+                }
+            ?>
         </div>
 
     </section>
@@ -201,37 +194,45 @@
                     // validation
                     if ($sql->rowCount() == 0)
                     {
-                        // there are no teams registered
+                        echo "
+                            <p style='font-size: 30px; color: #f66b0e; width: 100%; text-align: center;'>
+                                Não há nenhum registro de time
+                            </p>
+                        ";
+                        $num_slides = 0;
                     }
                     else
                     {
                         // defining quantity
-                        $num_teams = ceil($screen_width/300);
+                        $px_teams = 300;
+
+                        $num_teams = ceil($screen_width/$px_teams);
                         $num_slides = ceil($sql->rowCount()/$num_teams);
 
-                        // echo $num_teams ." opa ". $num_slides ." ";
-                        // echo $screen_width ." X ". $screen_height;
-
                         // functions slides
-                        function createFirstSlide($teams)
+                        function createFirstSlideTeam($teams)
                         { ?>
                             <div class="carousel-item active">
                                 <div class="container-itens"><?php
                                     foreach ($teams as $team)
                                     {
-                                        ?><img src="<?php echo INCLUDE_PATH.$team['escudo']; ?>" class="icon-team <?php echo $team['nome']; ?>"><?php
+                                        ?><a href="catalog?team=<?php echo $team['cod_time']; ?>">
+                                            <img src="<?php echo INCLUDE_PATH.$team['escudo']; ?>" class="icon-team">
+                                        </a><?php
                                     }?>
                                 </div>
                             </div><?php
                         }
 
-                        function createOthersSlides($teams)
+                        function createOthersSlidesTeam($teams)
                         { ?>
                             <div class="carousel-item">
                                 <div class="container-itens"><?php
                                 foreach ($teams as $team)
                                 {
-                                    ?><img src="<?php echo INCLUDE_PATH.$team['escudo']; ?>" class="icon-team <?php echo $team['nome']; ?>"><?php
+                                    ?><a href="catalog?team=<?php echo $team['nome']; ?>">
+                                        <img src="<?php echo INCLUDE_PATH.$team['escudo']; ?>" class="icon-team">
+                                    </a><?php
                                 }?>
                                 </div>
                             </div><?php
@@ -242,7 +243,7 @@
                         $first_slide->execute();
 
                         $teams = $first_slide->fetchAll();
-                        createFirstSlide($teams);
+                        createFirstSlideTeam($teams);
 
                         // others slides
                         $team_break = $team_now = $num_teams;
@@ -254,7 +255,7 @@
                             $others_slides->execute();
     
                             $teams = $others_slides->fetchAll();
-                            createOthersSlides($teams);
+                            createOthersSlidesTeam($teams);
 
                             $team_now += $num_teams;
                         }
@@ -263,16 +264,18 @@
             </div>
             
             <!-- buttons bootstrap  -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTeam" data-bs-slide="prev">
-                <div class="container-arrow"><span class="carousel-control-prev-icon" aria-hidden="true"></span></div>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTeam" data-bs-slide="next">
-                <div class="container-arrow"><span class="carousel-control-next-icon" aria-hidden="true"></span></div>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <?php
+                if($num_slides > 1){ ?>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTeam" data-bs-slide="prev">
+                        <div class="container-arrow"><span class="carousel-control-prev-icon" aria-hidden="true"></span></div>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselTeam" data-bs-slide="next">
+                        <div class="container-arrow"><span class="carousel-control-next-icon" aria-hidden="true"></span></div>
+                        <span class="visually-hidden">Next</span>
+                    </button><?php
+                }
+            ?>
         </div>
-
-        <!-- Quebra de linha dos itens || Utilizar uma logica que modifica a var do loop de acordo com o tamanho da tela, deixando os itens com a quantdade ideal. -->
     </section>
 </main>

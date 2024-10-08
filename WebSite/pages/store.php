@@ -14,10 +14,10 @@ require_once __DIR__ . '/../config/config.php';
 
     // Consultar dados do produto
     $sql_produto = "
-    SELECT marca, tipo, nome_produto, genero, preco, cod_prod
-    FROM produtos
-    WHERE cod_prod = $cod_prod
-";
+        SELECT marca, tipo, nome_produto, genero, preco, cod_prod
+        FROM produtos
+        WHERE cod_prod = $cod_prod
+    ";
 
     $result_produto = $conn->query($sql_produto);
 
@@ -84,10 +84,10 @@ require_once __DIR__ . '/../config/config.php';
             <!-- Size options -->
             <?php
             $sql_tamanhos = "
-            SELECT t.cod_tamanho, t.tamanho, IFNULL(pt.disponivel, FALSE) AS disponivel
-            FROM tamanhos t
-            LEFT JOIN produto_tamanhos pt ON t.cod_tamanho = pt.cod_tamanho AND pt.cod_prod = $cod_prod
-";
+                SELECT t.cod_tamanho, t.tamanho, IFNULL(pt.disponivel, FALSE) AS disponivel
+                FROM tamanhos t
+                LEFT JOIN produto_tamanhos pt ON t.cod_tamanho = pt.cod_tamanho AND pt.cod_prod = $cod_prod
+            ";
 
             $result_tamanhos = $conn->query($sql_tamanhos);
 
@@ -117,10 +117,10 @@ require_once __DIR__ . '/../config/config.php';
 
             // Consultar e exibir cores
             $sql_cores = "
-            SELECT c.cod_cor, c.nome_cor, IFNULL(pc.disponivel, FALSE) AS disponivel, c.imagem
-            FROM cores c
-            LEFT JOIN produtos_cores pc ON c.cod_cor = pc.cod_cor AND pc.cod_prod = $cod_prod
-";
+                SELECT c.cod_cor, c.nome_cor, IFNULL(pc.disponivel, FALSE) AS disponivel, c.imagem
+                FROM cores c
+                LEFT JOIN produtos_cores pc ON c.cod_cor = pc.cod_cor AND pc.cod_prod = $cod_prod
+            ";
 
             $result_cores = $conn->query($sql_cores);
 

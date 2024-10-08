@@ -2,6 +2,8 @@
 require_once 'config.php';
 
 try {
+    $conn = $mysqli = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
+
     $pdo = new PDO('mysql:host='.HOST, USERNAME, PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -17,7 +19,10 @@ try {
                 nome_produto VARCHAR(50),
                 genero ENUM('Masculino', 'Feminino'),
                 preco DECIMAL(10, 2),
-                quantidade INT NOT NULL
+                quantidade INT NOT NULL,
+                acessos INT,
+                limite_parcelas INT NOT NULL, # PRECISA?
+                imagem VARCHAR(255) NOT NULL
             );
 
             -- Tabela de tamanhos
@@ -115,6 +120,7 @@ try {
                 FOREIGN KEY (cod_time) REFERENCES tb_times(cod_time)
             );";
     $pdo->exec($sql);
+
 } catch(PDOException $e) {
     echo '<h2>Erro ao conectar no banco de dados.</h2>'.$e->getMessage();
 }
